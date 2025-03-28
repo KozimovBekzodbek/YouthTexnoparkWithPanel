@@ -1,0 +1,150 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- required tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- swiper -->
+    <link rel="stylesheet" href="{% static 'libraries/swiper/swiper.css' %}">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="{% static 'libraries/fontawesome-free-6.6.0-web/css/all.min.css' %}">
+    <!-- lineicons -->
+    <link rel="stylesheet" href="{% static 'libraries/lineicons/lineicons.css' %}">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="{% static 'libraries/bootstrap-5.3.3-dist/css/bootstrap.min.css' %}">
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- media css -->
+    <link rel="stylesheet" href="{% static 'media-style.css' %}">
+    <!-- title -->
+    <title>Andijon Yoshlar Texnoparki</title>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav id="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo">
+                    <a href="#">
+                        {% for item in main %}
+                        <img src="{{ item.icon.url }}" alt="logo">
+                        {% endfor %}
+                    </a>
+                </div>
+                <ul class="d-lg-flex">
+                    <li><a href="#">Asosiy</a></li>
+                    <li><a href="#section-1">Xizmatlar</a></li>
+                    <li><a href="#main">Yangiliklar</a></li>
+                    <li><a href="#about-us">Biz haqimizda</a></li>
+                    <li><a href="#main-2">Tanlov</a></li>
+                    <li><a href="#footer">Aloqa</a></li>
+                    <a href="#" class="logo-res d-lg-none">
+                        <img src="{% static 'images/logo.svg' %}" alt="logo">
+                    </a>
+                    <!-- closer -->
+                    <i class="lni lni-close d-lg-none times fs-1"></i>
+                </ul>
+                <div class="d-flex align-items-center gap-4">
+                    <!-- day and light -->
+                    <div class="mode">
+                        <i class="lni lni-night fs-1"></i>
+                    </div>
+                    <!-- opener -->
+                    <div class="opener d-lg-none">
+                        <i class="lni lni-menu fs-1"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    
+    {% block content %}
+    {% endblock %}
+    
+
+
+
+
+    <!-- footer beta -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- logo -->
+                <!-- rows -->
+                 {% for item in footer %}
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="box">
+                            <img src="{{item.icon.url}}" alt="logo">
+                            <p>{{item.address}}</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <ul class="ps-sm-4">
+                            <li class="mb-3">
+                                <h4>Bosh sahifa</h4>
+                            </li>
+                            <li><a href="#">Asosiy</a></li>
+                            <li><a href="#">Xizamtlar</a></li>
+                            <li><a href="#">Yangiliklar</a></li>
+                            <li><a href="#">Biz haqimizda</a></li>
+                            <li><a href="#">Tanlov</a></li>
+                            <li><a href="#">Aloqa</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <ul class="ps-sm-4">
+                            <li class="mb-3">
+                                <h4>Bosh sahifa</h4>
+                            </li>
+                            <li><a href="#">Asosiy</a></li>
+                            <li><a href="#">Xizamtlar</a></li>
+                            <li><a href="#">Yangiliklar</a></li>
+                            <li><a href="#">Biz haqimizda</a></li>
+                            <li><a href="#">Tanlov</a></li>
+                            <li><a href="#">Aloqa</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <ul>
+                            <li class="mb-3">
+                                <h4>Ijtimoiy tarmoqlar</h4>
+                            </li>
+                            <div class="d-flex align-items-center gap-4">
+                                <li><a href="https://facebook.com/{{item.facebook}}"><i class="fab fa-facebook fa-2x"></i></a></li>
+                                <li><a href="https://instagram.com/{{item.instagram}}"><i class="fab fa-instagram fa-2x"></i></a></li>
+                                <li><a href="https://telegram.org/{{item.telegram}}"><i class="fab fa-telegram fa-2x"></i></a></li>
+                                <li><a href="https://gmail.com/{{item.mail}}"><i class="fa fa-envelope fa-2x"></i></a></li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- typed js -->
+    <!-- <script src="libraries/typed/typed.js"></script> -->
+    <!-- aos js -->
+    <script src="{% static 'libraries/aos/aos.js' %}"></script>
+    <!-- swiper js -->
+    <script src="{% static 'libraries/swiper/swiper.js' %}"></script>
+    <!-- bootstrap js -->
+    <script src="{% static 'libraries/bootstrap-5.3.3-dist/js/bootstrap.bundle.js' %}"></script>
+    <!-- own js -->
+    <script src="{% static 'script.js' %}"></script>
+</body>
+
+</html>

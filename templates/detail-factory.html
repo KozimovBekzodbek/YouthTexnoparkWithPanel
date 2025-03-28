@@ -1,0 +1,270 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- required tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- aos css -->
+    <link rel="stylesheet" href="{% static 'libraries/aos/aos.css' %}">
+    <!-- swiper -->
+    <link rel="stylesheet" href="{% static 'libraries/swiper/swiper.css' %}">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="{% static 'libraries/fontawesome-free-6.6.0-web/css/all.min.css' %}">
+    <!-- lineicons -->
+    <link rel="stylesheet" href="{% static 'libraries/lineicons/lineicons.css' %}">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="{% static 'libraries/bootstrap-5.3.3-dist/css/bootstrap.min.css' %}">
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- media css -->
+    <link rel="stylesheet" href="{% static 'media-style.css' %}">
+    <!-- title -->
+    <title>Andijon Yoshlar Texnoparki</title>
+</head>
+
+<body>
+        <!-- navbar -->
+        <nav id="navbar">
+            <div class="container">
+                <div class="navbar-content">
+                    <div class="logo">
+                        <a href="#">
+                            {% for item in main %}
+                            <img src="{{ item.icon.url }}" alt="logo">
+                            {% endfor %}
+                        </a>
+                    </div>
+                    <ul class="d-lg-flex">
+                        <li><a href="#">Asosiy</a></li>
+                        <li><a href="#section-1">Xizmatlar</a></li>
+                        <li><a href="#main">Yangiliklar</a></li>
+                        <li><a href="#about-us">Biz haqimizda</a></li>
+                        <li><a href="#main-2">Tanlov</a></li>
+                        <li><a href="#footer">Aloqa</a></li>
+                        <a href="#" class="logo-res d-lg-none">
+                            <img src="{% static 'images/logo.svg' %}" alt="logo">
+                        </a>
+                        <!-- closer -->
+                        <i class="lni lni-close d-lg-none times fs-1"></i>
+                    </ul>
+                    <div class="d-flex align-items-center gap-4">
+                        <!-- day and light -->
+                        <div class="mode">
+                            <i class="lni lni-night fs-1"></i>
+                        </div>
+                        <!-- opener -->
+                        <div class="opener d-lg-none">
+                            <i class="lni lni-menu fs-1"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+    <!-- detail-factory-header -->
+    <div id="detail-factory-header">
+        <div class="container">
+            {% for item in about %}
+            <div class="row align-items-center">
+                <div class="col-12 col-lg-6">
+                    <div class="left-side">
+                        <h1>{{item.title}}</h1>
+                        <p>{{item.about}}</p>
+                        <a href="#" class="my-button">Batafsil</a>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 d-none d-lg-block">
+                    <div class="right-side">
+                        <img src="{{item.image.url}}" alt="factory texnopark fablab" class="w-100">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+
+
+    <!-- detail-factory-section -->
+    <section id="detail-factory-section">
+        <div class="container">
+            <!-- row -->
+            <div class="row gy-4">
+                <!-- 1 -->
+                 {% for item in typeservice %}
+                <div class="col-12 col-lg-6">
+                    <a href="#">
+                        <div class="box">
+                            <div class="box-left">
+                                <img class="w-100" src="{{item.icon.url}}"
+                                    alt="factory fablab texnopark lazer 3d printer">
+                            </div>
+                            <div class="box-right">
+                                <h4>{{item.title}}</h4>
+                                <p>{{item.about}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- detail-factory-main -->
+    <main id="detail-factory-main">
+        <div class="container">
+            <div class="title">
+                <h1>Mahsulotlarimiz rasmlarda</h1>
+            </div>
+            <div class="row gy-5">
+                <!-- 1 -->
+          {% for item in product %}
+                <div class="col-12 col-md-6 col-xl-4">
+                    <a href="#">
+                        <div class="box" style=" background: linear-gradient(#0076eb00, rgba(0, 118, 235, 0.1), rgba(0, 118, 235, 0.7)), url('{{item.image.url}}') no-repeat center center / cover ;">
+                            <div class="box-content">
+                                <h4>{{item.title}}</h4>
+                                <p>{{item.about}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+
+                
+            </div>
+        </div>
+    </main>
+
+
+
+
+    <!-- section-6 -->
+    <section id="main-2">
+        <div class="container">
+            <!-- row -->
+            <div class="row align-items-center">
+                <!-- left-side -->
+                <div class="col-12 col-xl-7">
+                    <div class="left-side mb-5 mb-xl-0">
+                        <h2 class="h1"><span>Mahsulotlarga</span> qanday buyurtma berish mumkin?</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur. Amet parturient mauris ut viverra praesent sagittis
+                            velit mi scelerisque. Nascetur a eu nibh amet cras sit ultrices tempor nam. Cras nunc
+                            vulputate facilisis donec magnis hac in ut enim. Tristique a nibh pharetra at.</p>
+
+                    </div>
+                </div>
+                <!-- right-side -->
+                <div class="col-12 col-xl-5">
+                    <div class="right-side">
+                        <form class="form" method="post">
+                            {% csrf_token %}
+                            <h3 class="mb-4">Ma'lumotlaringizni qoldiring</h3>
+                            <label class="w-100" for="forName">
+                                <span>Ismingizni kiriting</span>
+                                <input id="forName" class="form-control" type="text" name="name" placeholder="Ismingiz">
+                            </label>
+                            
+                            
+
+                            <label for="forPhone" class="w-100">
+                                <span>Telefon raqamingizni kiriting</span>
+                                <input id="forPhone" class="form-control" name="phone_number" type="number"
+                                    placeholder="telefon raqamingiz">
+                            </label>
+                            <div class="text-center">
+                                <button type="submit" class="my-button">Yuborish</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- footer beta -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- logo -->
+                <!-- rows -->
+                 {% for item in footer %}
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="box">
+                            <img src="{{item.icon.url}}" alt="logo">
+                            <p>{{item.address}}</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <ul class="ps-sm-4">
+                            <li class="mb-3">
+                                <h4>Bosh sahifa</h4>
+                            </li>
+                            <li><a href="#">Asosiy</a></li>
+                            <li><a href="#">Xizamtlar</a></li>
+                            <li><a href="#">Yangiliklar</a></li>
+                            <li><a href="#">Biz haqimizda</a></li>
+                            <li><a href="#">Tanlov</a></li>
+                            <li><a href="#">Aloqa</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <ul class="ps-sm-4">
+                            <li class="mb-3">
+                                <h4>Bosh sahifa</h4>
+                            </li>
+                            <li><a href="#">Asosiy</a></li>
+                            <li><a href="#">Xizamtlar</a></li>
+                            <li><a href="#">Yangiliklar</a></li>
+                            <li><a href="#">Biz haqimizda</a></li>
+                            <li><a href="#">Tanlov</a></li>
+                            <li><a href="#">Aloqa</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <ul>
+                            <li class="mb-3">
+                                <h4>Ijtimoiy tarmoqlar</h4>
+                            </li>
+                            <div class="d-flex align-items-center gap-4">
+                                <li><a href="https://facebook.com/{{item.facebook}}"><i class="fab fa-facebook fa-2x"></i></a></li>
+                                <li><a href="https://instagram.com/{{item.instagram}}"><i class="fab fa-instagram fa-2x"></i></a></li>
+                                <li><a href="https://telegram.org/{{item.telegram}}"><i class="fab fa-telegram fa-2x"></i></a></li>
+                                <li><a href="https://gmail.com/{{item.mail}}"><i class="fa fa-envelope fa-2x"></i></a></li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </footer>
+
+    <!-- typed js -->
+    <!-- <script src="libraries/typed/typed.js"></script> -->
+    <!-- aos js -->
+    <script src="{% static 'libraries/aos/aos.js' %}"></script>
+    <!-- swiper js -->
+    <script src="{% static 'libraries/swiper/swiper.js' %}"></script>
+    <!-- bootstrap js -->
+    <script src="{% static 'libraries/bootstrap-5.3.3-dist/js/bootstrap.bundle.js' %}"></script>
+    <!-- own js -->
+    <script src="{% static 'script.js' %}"></script>
+</body>
+
+</html>

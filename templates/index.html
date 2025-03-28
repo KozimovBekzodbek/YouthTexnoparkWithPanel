@@ -1,0 +1,499 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+   <!-- header -->
+    <header id="header">
+        <div class="container">
+            <!-- row -->
+             {% for item in main %}
+            <div class="row align-items-center">
+                <!-- left-side -->
+                <div class="col-12 col-xl-6">
+                    <div class="left-side mb-5 pb-5 mb-xl-0 pb-xl-0">
+                        <h3>{{ item.title }}</h3>
+                        <a href="{% url 'common:forms' %}" class="my-button">So‘rov qoldiring</a>
+                    </div>
+                </div>
+                <!-- right-side -->
+                <div class="d-none d-xl-block col-12 col-xl-6">
+                    <div class="right-side" data-aos="fade-left" data-aos-duration="2000">
+                        <img src="{{ item.main_img.url }}" alt="header-1">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </header>
+
+    <!-- section-1 -->
+    <section id="section-1">
+        <div class="container">
+            <div class="section-1-title" data-aos="fade-right">
+                <h3>Faoliyat <span>yo‘nalishlari</span></h3>
+                <p>O‘zingizga kerak bo‘lgan faoliyat yo‘nalishini tanlang.</p>
+            </div>
+
+            <!-- 1 left-side -->
+            <div class="left-side pb-5" data-aos="flip-left" data-aos-duration="500" data-aos-delay="100">
+                <div class="row">
+                    <!-- box 1 -->
+                    <div class="col-12 col-md-6">
+                        <a href="{% url 'common:forms' %}">
+                            <div class="box">
+                                <img src="{% static 'images/section-1-1.png' %}" alt="section-1-1">
+                                <div class="text">
+                                    <span>1-yo‘nalish</span>
+                                    <h3>Innovatsion startap loyiha va g‘oyalarni rivojlantirish</h3>
+                                    <a href="{% url 'common:forms' %}" class="d-flex align-items-center gap-1">
+                                        <span>
+                                            Batafsil
+                                        </span>
+                                        
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- box 2 -->
+                    <div class="col-12 col-md-6">
+                        <a href="{% url 'common:courses' %}">
+                            <div class="box">
+                                <img src="{% static 'images/section-1-2.png' %}" alt="section-1-1">
+                                <div class="text">
+                                    <span>2-yo‘nalish</span>
+                                    <h3>Yoshlarga Axborot texnologiyalari sohasi bo‘yicha ta’lim berish</h3>
+                                    <a href="{% url 'common:courses' %}" class="d-flex align-items-center gap-1">
+                                        <span>
+                                            Batafsil
+                                        </span>
+                                        
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- box 3 -->
+                    <div class="col-12 col-md-6">
+                        <a href="">
+                            <div class="box">
+                                <img src="{% static 'images/section-1-3.png' %}" alt="section-1-1">
+                                <div class="text">
+                                    <span>3-yo‘nalish</span>
+                                    <h3>raqamli texnologiyalar sohasi bo‘yicha xizmat ko‘rsatish</h3>
+                                    <a href="#" class="d-flex align-items-center gap-1">
+                                        <span>
+                                            Batafsil
+                                        </span>
+                                        
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- box 4 -->
+                    <div class="col-12 col-md-6">
+                        <a href="{% url 'common:service' %}">
+                            <div class="box">
+                                <img src="{% static 'images/section-1-4.png' %}" alt="section-1-1">
+                                <div class="text">
+                                    <span>4-yo‘nalish</span>
+                                    <h3>metall va nometall hom ashyolariga qaytaishlov berish xizmatlari</h3>
+                                    <a href="{% url 'common:service' %}" class="d-flex align-items-center gap-1">
+                                        <span>
+                                            Batafsil
+                                        </span>
+                                        
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 2 right-side -->
+            <!-- <div class="col-12 col-xl-6 d-none d-xl-block">
+                 <div class="right-side" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
+                    <img src="{% static 'images/header-1.png' %}" alt="header-1 on section-1">
+                 </div>
+            </div> -->
+
+        </div>
+    </section>
+
+    <!-- Inkubator -->
+    <div id="inkubator" class="py-5 mb-5">
+        <div class="container">
+            <!-- row -->
+             {% for item in innox %}
+            <div class="row align-items-center">
+                <!-- left-side -->
+                <div class="col-12 col-lg-6">
+                    <div class="left-side mb-5 mb-lg-0">
+                        <!-- title -->
+                        <h2 data-aos="fade-right">{{ item.name }}</h2>
+
+                        <!-- image -->
+                        <img data-aos="fade-right" data-aos-delay="100" class="w-100" src="{{ item.image.url }}"
+                            alt="Biznes-inkubator" title="Biznes Inkubator">
+                    </div>
+                </div>
+                <!-- right-side -->
+                <div class="col-12 col-lg-6">
+                    <div class="right-side" data-aos="fade-left" data-aos-delay="200">
+                        <p>{{ item.description }}</p>
+                        <ul>
+                            <li>
+                                Davomiyligi: <span>{{ item.duration }}</span>
+                            </li>
+                            <li>
+                                Dars davomiyligi: <span>{{item.lesson_duration}}</span>
+                            </li>
+                            <li>
+                                Dars kunlari: <span>{{item.lesson_days}}</span>
+                            </li>
+                            <li>
+                                Yosh chegarasi: <span>{{item.age_limit}}</span>
+                            </li>
+                            <li>
+                                Talab: <span> {{item.requirements}}</span>
+                            </li>
+                        </ul>
+                        <p class="second-p">O'quv mashg'ulotlari davomida, ishtirokchilarga tajribali mentorlar
+                            tomonidan startap bilan bevosita ishlash uchun zarur bilim va ko'nikmalar beriladi.</p>
+                        <a href="{% url 'common:forms' %}" class="my-button">Ro‘yxatdan o‘tish</a>
+                        <!-- link to here -->
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    
+    <!-- section-2 -->
+    <section id="section-2">
+        <div class="container">
+            <!-- row -->
+            <div class="row align-items-center">
+                <!-- 1 -->
+                <div class="col-12 col-lg-6">
+                    <!-- left-side -->
+                    <div class="left-side" data-aos="fade-right" data-aos-delay="100">
+                        <h3>
+                            <span>Bepul sinov</span> <br>
+                            darsiga yoziling!
+                        </h3>
+                        <p>Bepul sinov darsiga yoziling, va <br> o‘zingizga mos sohani tanlang.</p>
+                    </div>
+                </div>
+                <!-- 2 -->
+                <div class="col-12 col-lg-6">
+                    <!-- right-side -->
+                    <div class="right-side text-start text-lg-end" data-aos="fade-left" data-aos-delay="200">
+                        <div class="text">
+                            <h3>0 so‘m </h3>
+                            <p> Bepul sinov darsi uchun </p>
+                        </div>
+                        <a href="#main-2" class="my-button">So‘rov qoldiring</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- before main -->
+    <section id="about-us">
+        <div class="container">
+            <!-- row -->
+            <div class="row align-items-center">
+                <!-- left-side -->
+                 {% for item in aboutus %}
+                <div class="col-12 col-lg-6">
+                    <div class="left-side mb-5 mb-lg-0 pe-lg-4">
+                        <h3 data-aos="fade-right" data-aos-delay="100">Biz Haqimizda</h3>
+                        <p data-aos="fade-right" data-aos-delay="200">{{ item.description }}</p>
+                    </div>
+                </div>
+                <!-- right-side -->
+                <div class="col-12 col-lg-6">
+                    <div class="right-side">
+                        <img data-aos="fade-left" data-aos-delay="300" class="w-100" src="{{ item.image.url }}"
+                            alt="">
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- section-4 -->
+    <section id="section-4">
+        <div class="container">
+            <!-- content -->
+            <div class="section-content">
+                <!-- title -->
+                <h2 data-aos="fade-down">Bizning <span>jamoa</span></h2>
+                <!-- Swiper -->
+                <div class="swiper swiperTeam">
+                    <div class="swiper-wrapper">
+                        {% for mentor in mentors %}
+                        <div class="swiper-slide" data-aos="fade-up" data-aos-delay="500">
+                            <div class="box">
+                                <img src="{{mentor.image.url}}" alt="">
+                                <div class="parent"> </div>
+                                <div class="content">
+                                    <div class="title">
+                                        <h3>{{mentor.name}}</h3>
+                                        <span>{{mentor.major}}</span>
+                                    </div>
+                                    <p>{{mentor.about}}</p>
+                                    <ul>
+                                        <li><a href="{{mentor.facebook}}"><i class="fab fa-facebook fa-2x"></i></a></li>
+                                        <li><a href="{{mentor.instagram}}"><i class="fab fa-instagram fa-2x"></i></a></li>
+                                        <li><a href="{{mentor.telegram}}"><i class="fab fa-telegram fa-2x"></i></a></li>
+                                        <li><a href="{{mentor.github}}"><i class="fab fa-github fa-2x"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+                <!-- swiper end -->
+            </div>
+        </div>
+    </section>
+
+    <!-- main -->
+    <main id="main">
+        <div class="container">
+            <div class="main-content">
+                <!-- title -->
+                <h2 data-aos="fade-down" data-aos-delay="200">Texnoparkdagi <br> <span> so‘nggi yangiliklar</span> </h2>
+                <!-- row -->
+                <div class="row">
+                    <!-- 1 -->
+                     {% for new in news %}
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <a href="">
+                            <div class="box" data-aos="flip-right" data-aos-delay="300">
+                                <img src="{{new.image.url}}" alt="main-1">
+                                <div class="text">
+                                    <div>
+                                        <span>{{new.date}}</span>
+                                        <p>{{new.description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                   {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- section-3 -->
+    <section id="section-3">
+        <div class="container">
+            <div class="section-content">
+                <h2 data-aos="fade-down" data-aos-delay="100">nega aynan<br><span>texnopark?</span></h2>
+                <!-- row -->
+                <div class="row">
+                    <!-- 1 -->
+                     {% for item in whytexnopark %}
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <a href="">
+                            <!-- box -->
+                            <div data-aos="fade-right" class="box">
+                                <img width="50px" src="{{item.icon.url}}" alt="icon-1" class="icon">
+                                <h3>{{item.title}}</h3>
+                                <p>{{item.description}}</p>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <!-- section-5 -->
+    <section id="section-5">
+        <div class="container">
+            <div class="section-content">
+                <h2>O‘quvchilarimiz <span>ishlari</span></h2>
+                <p>Biz qanchalik sifatli ta’lim berishimiz va ishonchliligimizni <br> bilmoqchi bo‘lsangiz,
+                    o‘quvchilarimiz
+                    ishlariga qarang!</p>
+                <!-- Carousel -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper mb-5 py-4">
+                        <!-- 1 -->
+                         {% for item in studentproject %}
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <img class="card-img-top" src="{{item.image.url}}" alt="section-5-1">
+                                <div class="card-body">
+                                    <h3>{{item.title}}</h3>
+                                    <p>{{item.description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                       {% endfor %}
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- accardion -->
+    <section id="accardion">
+        <div class="container">
+            <div class="title">
+                <h3>
+                    <span>Tez-tez</span> beriladigan savollar
+                </h3>
+            </div>
+            <!-- accardion -->
+            <div class="accordion" id="accordionExample">
+             {% for item in question %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            {{item.question}}
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p>{{item.answer}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+    </section>
+
+
+    <!-- auto scroll slider -->
+    <div class="slider-title">
+        <div class="container">
+            <h2 class="mb-3">
+                <span>Foto</span> va <span>Video</span> lavhalar
+            </h2>
+        </div>
+    </div>
+    <div class="slider">
+        <div class="scrolling" id="scrollingDiv">
+            <!-- items -->
+          {% for item in sliderimages %}
+            <div class="slider-item">
+                <div class="box">
+                    <img src="{{item.big_image.url}}" alt="image">
+                </div>
+            </div>
+            <div class="slider-item">
+                <div class="box">
+                    <img src="{{item.small_top_image.url}}" alt="image">
+                    <img src="{{item.small_bottom_image.url}}" alt="image">
+                </div>
+            </div>
+        {% endfor %}
+            <!-- Har bir itemni keyingi slaydga o‘xshash qilib ko‘paytirib chiqsangiz bo‘ladi -->
+        </div>
+    </div>
+
+
+    <!-- section-6 -->
+    <section id="main-2">
+        <div class="container">
+            <!-- row -->
+            <div class="row align-items-center">
+                <!-- left-side -->
+                <div class="col-12 col-xl-7">
+                    <div class="left-side mb-5 mb-xl-0">
+                        <h2 class="h1"><span>Kurslarga</span> qanday qanday obuna bo'lish mumkin</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur. Amet parturient mauris ut viverra praesent sagittis
+                            velit mi scelerisque. Nascetur a eu nibh amet cras sit ultrices tempor nam. Cras nunc
+                            vulputate facilisis donec magnis hac in ut enim. Tristique a nibh pharetra at.</p>
+
+                    </div>
+                </div>
+                <!-- right-side -->
+                <div class="col-12 col-xl-5">
+                    <div class="right-side">
+                        <form class="form" method="post">
+                            {% csrf_token %}
+
+                            <h3 class="mb-4">Chegirmangizni saqlash uchun so'rov qoldiring</h3>
+                            <label class="w-100" for="forName">
+                                <span>Ismingizni kiriting</span>
+                                <input id="forName" class="form-control" name='name' type="text" placeholder="Ismingiz">
+                            </label>
+                            <label for="my-select" class="w-100">
+                                <span>Yo'nalishingnizni tanlang</span>
+                                <select id="my-select" class="form-control mb-3" name="major" id="">
+                                    {% for item in major %}
+                                    <option value="{{item}}">{{item}}</option>
+                                     {% endfor %}
+                                </select>
+                            </label>
+                            <label for="forAge" class="w-100">
+                                <span>Yoshingizni kiriting</span>
+                                <input id="forAge" class="form-control" name="age" type="number" placeholder="yoshingiz">
+                            </label>
+
+                            <label for="forPhone" class="w-100">
+                                <span>Telefon raqamingizni kiriting</span>
+                                <input id="forPhone" class="form-control" name="phone_number" type="number"
+                                    placeholder="telefon raqamingiz">
+                            </label>
+                            <div class="text-center">
+                                <button type="submit" class="my-button">So'rov qoldirish</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- our students -->
+    <section id="result">
+        <div class="container">
+            <!-- title -->
+            <div class="title">
+                <h2 class=""><span>O‘quvchilarimiz</span> <br> qayerlarda ishlab kelishmoqda?</h2>
+            </div>
+            <!-- slider 2 -->
+        </div>
+        <!-- auto scroll slider -->
+        <div class="slider slider-2">
+            <div class="scrolling" id="scrollingDiv2">
+                <!-- items -->
+                 {% for item in slidercompany %}
+                <div class="slider-item item-2">
+                    <div class="box">
+                        <img src="{{item.image.url}}" alt="image">
+                    </div>
+                </div>
+                {% endfor %}
+
+                <!-- Har bir itemni keyingi slaydga o‘xshash qilib ko‘paytirib chiqsangiz bo‘ladi -->
+            </div>
+        </div>
+    </section>
+
+
+
+    {% endblock %}
