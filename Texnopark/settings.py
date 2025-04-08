@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/panel/'
 
 # Application definition
 
@@ -71,7 +73,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Texnopark.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases

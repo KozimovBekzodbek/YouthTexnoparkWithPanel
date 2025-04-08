@@ -337,7 +337,7 @@ class Product(models.Model):
        verbose_name_plural = "Products"
     
 
-class SeriveContact(models.Model):
+class ServiceContact(models.Model):
    name = models.CharField(max_length=256)
    phone_number = models.CharField(max_length=13)
 
@@ -346,6 +346,71 @@ class SeriveContact(models.Model):
        return f"{self.name}"
 
    class Meta:
-       db_table = "SeriveContact"
-       verbose_name = "SeriveContact"
-       verbose_name_plural = "SeriveContacts"
+       db_table = "ServiceContact"
+       verbose_name = "ServiceContact"
+       verbose_name_plural = "ServiceContacts"
+
+
+
+class ItService(models.Model):
+   title = models.CharField(max_length=256)
+   about = models.TextField()
+   image = ResizedImageField(size=[456,474], quality = 95, crop=['middle', 'center'], upload_to='services/%Y/%m')
+    
+    
+
+   def __str__(self):
+        return f"{self.title}"
+
+   class Meta:
+       db_table = "ItService"
+       verbose_name = "ItService"
+       verbose_name_plural = "ItServices"
+
+
+
+
+
+class ItServiceType(models.Model):
+    icon = models.FileField()
+    title = models.CharField(max_length=256)
+    about = models.TextField()
+
+
+    def __str__(self):
+        return f"{self.title}"
+    
+    class Meta:
+        db_table = "ItServiceType"
+        verbose_name = "ItServiceType"
+        verbose_name_plural = "ItServiceType"
+
+
+class ItProduct(models.Model):
+   title = models.CharField(max_length=256)
+   about = models.TextField()
+   image = ResizedImageField(size=[330,530], quality = 95, crop=['middle', 'center'], upload_to='serviceproduct/%Y/%m')
+
+
+   def __str__(self):
+       return f"{self.title}"
+   
+
+   class Meta:
+       db_table = "ItProduct"
+       verbose_name = "ItProduct"
+       verbose_name_plural = "ItProducts"
+    
+
+class ItServiceContact(models.Model):
+   name = models.CharField(max_length=256)
+   phone_number = models.CharField(max_length=13)
+
+
+   def __str__(self):
+       return f"{self.name}"
+
+   class Meta:
+       db_table = "ItSeriveContact"
+       verbose_name = "ItSeriveContact"
+       verbose_name_plural = "ItSeriveContacts"

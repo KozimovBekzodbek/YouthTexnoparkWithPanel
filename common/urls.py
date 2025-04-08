@@ -10,4 +10,5 @@ urlpatterns = [
         path("forms/", views.FormView.as_view(), name="forms"),
         path("courses/", views.CourseView.as_view(), name="courses"),
         path("service/", views.ServiceView.as_view(), name="service"),
+        path("itservice/", views.ItServiceView.as_view(), name="itservice"),
 ]

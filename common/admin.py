@@ -47,8 +47,28 @@ admin.site.register(models.Service)
 admin.site.register(models.ServiceType)
 admin.site.register(models.Product)
 
+admin.site.register(models.ItService)
 
-admin.site.register(models.Registration)
+admin.site.register(models.ItServiceType)
+admin.site.register(models.ItProduct)
+
+class RegistrationAdmin(admin.ModelAdmin):
+    list_display = ('full_name',)
+
+    def presentation_link(self, obj):
+        if obj.presentation:
+            return f'<a href="{obj.presentation.url}" target="_blank">Download Presentation</a>'
+        return "No file"
+    presentation_link.allow_tags = True  # Bu faylni HTML formatda ko'rsatadi
+
+    def startap_image_link(self, obj):
+        if obj.startap_image:
+            return f'<img src="{obj.startap_image.url}" width="100" />'  # Tasvirni kichik qilib ko'rsatish
+        return "No image"
+    startap_image_link.allow_tags = True  # Tasvirni HTML formatda ko'rsatish
+
+
+admin.site.register(models.Registration, RegistrationAdmin)
 admin.site.register(models.StartAppCategory)
 admin.site.register(models.Purposes)
 
@@ -65,7 +85,12 @@ class CourseContactAdmin(admin.ModelAdmin):
     search_fields = ("name", "phone_number")
 
 
-@admin.register(models.SeriveContact)
+@admin.register(models.ServiceContact)
 class ServiceContactAdmin(admin.ModelAdmin):
+    list_display = ("name", )
+    search_fields = ("name", "phone_number")
+
+@admin.register(models.ItServiceContact)
+class ItServiceContactAdmin(admin.ModelAdmin):
     list_display = ("name", )
     search_fields = ("name", "phone_number")

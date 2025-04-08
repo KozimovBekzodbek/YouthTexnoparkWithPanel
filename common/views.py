@@ -235,7 +235,7 @@ class ServiceView(View):
         print("Data received from POST request:", data)
 
         try:
-            registration = models.SeriveContact(
+            registration = models.ServiceContact(
                 name=data["name"],
                 phone_number=data["phone_number"],
             )
@@ -249,3 +249,50 @@ class ServiceView(View):
             traceback.print_exc()
             messages.error(request, f'An error occurred: {str(e)}')  
             return redirect("common:error")
+
+
+
+class ItServiceView(View):
+    def get(self, request):
+        main = models.MainPage.objects.all().order_by("-id")
+        about = models.ItService.objects.all()
+        typeservice = models.ItServiceType.objects.all()
+        product = models.ItProduct.objects.all()
+        footer = models.Footer.objects.all()
+
+        context = {
+            'about':about,    
+            'main':main,
+            'typeservice':typeservice,
+            'product':product,
+            'footer':footer,
+        }
+        return render(request, 'detail-it.html', context)
+
+    print("----------------BAD BAD BAD BAD-------------------------------------")
+
+    def post(self, request):
+
+        print("++++++++++++++GOOOD+++++++++++++++++++++++++++")
+        data = {
+            "name": request.POST.get("name"),
+            "phone_number": request.POST.get("phone_number"),
+        }
+        print("Data received from POST request:", data)
+
+        try:
+            registration = models.ItServiceContact(
+                name=data["name"],
+                phone_number=data["phone_number"],
+            )
+            registration.save()
+
+            messages.success(request, 'Your message has been sent successfully!')
+            return redirect("common:success")
+
+        except Exception as e:
+            print("Error occurred:", str(e))
+            traceback.print_exc()
+            messages.error(request, f'An error occurred: {str(e)}')  
+            return redirect("common:error")
+

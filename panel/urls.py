@@ -10,5 +10,6 @@ urlpatterns = [
         path("", HomeView.as_view(), name ="home"),
         path("project", include('panel.Innox.urls')),
         path("course", include('panel.lid.urls')),
+        path("service", include('panel.service.urls')),
 
         ]
